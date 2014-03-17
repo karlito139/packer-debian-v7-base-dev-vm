@@ -1,7 +1,7 @@
 {
   "builders": [
     {
-      "name": "debian-v7-base-vm-{{timestamp}}",
+      "name": "debian-v7-base-dev-vm-{{timestamp}}",
       "type": "virtualbox-iso",
 
       "iso_checksum": "9bc3493d8f4a84093fe8bd28551ece05d0145fc467070dd411f495fde40a10d32f144e2828ebf2f892e29d2f36543f9ccdc9bb479869c7425e725140390869a3",
