@@ -24,13 +24,13 @@ packer build template.json
 The following are several variables you can _[change](http://packer.io/docs/templates/user-variables.html "User Variables in Templates - Packer")_ for this template.
 
  - `vm_domain_name` (default: `"terminator.dev"`)
- - `vm_full_name` (default: `"Terminator Commander"`)
  - `vm_fs_partition_size_home` (default: `"4 GB"`)
  - `vm_fs_partition_size_root` (default: `"2 GB"`)
  - `vm_fs_partition_size_swap` (default: `"2.5 GB"`)
  - `vm_fs_partition_size_tmp` (default: `"2 GB"`)
  - `vm_fs_partition_size_usr` (default: `"10 GB"`)
  - `vm_fs_partition_size_var` (default: `"max"`)
+ - `vm_full_name` (default: `"The Terminator Commander"`)
  - `vm_hostname` (default: `"terminator"`)
  - `vm_password` (default: `"beawesome"`)
  - `vm_username` (default: `"commander"`)

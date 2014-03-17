@@ -217,13 +217,13 @@
   "variables": {
     "vm_debian_apt_sources_list_location": "/etc/apt/sources.list",
     "vm_domain_name": "terminator.dev",
-    "vm_full_name": "Terminator Commander",
     "vm_fs_partition_size_home": "4 GB",
     "vm_fs_partition_size_root": "2 GB",
     "vm_fs_partition_size_swap": "2.5 GB",
     "vm_fs_partition_size_tmp": "2 GB",
     "vm_fs_partition_size_usr": "10 GB",
     "vm_fs_partition_size_var": "max",
+    "vm_full_name": "The Terminator Commander",
     "vm_hostname": "terminator",
     "vm_password": "beawesome",
     "vm_username": "commander"
