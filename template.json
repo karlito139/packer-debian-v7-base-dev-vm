@@ -176,7 +176,6 @@
         "<wait10>"
       ],
 
-      "boot_wait": "5s",
       "disk_size": 32768,
       "format": "ova",
       "guest_os_type": "Debian_64",
