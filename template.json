@@ -1,7 +1,7 @@
 {
   "builders": [
     {
-      "name": "debian-v7-base-vm-{{timestamp}}",
+      "name": "debian-v7-base-dev-vm-{{timestamp}}",
       "type": "virtualbox-iso",
 
       "iso_checksum": "9bc3493d8f4a84093fe8bd28551ece05d0145fc467070dd411f495fde40a10d32f144e2828ebf2f892e29d2f36543f9ccdc9bb479869c7425e725140390869a3",
@@ -172,15 +172,14 @@
         "<wait>",
         "{{user `vm_password`}}<enter>",
         "<wait5>",
-        "echo -e \"{{user `vm_password`}}\\n\" | sudo -S aptitude install openssh-server<enter>",
+        "echo \"{{user `vm_password`}}\" | sudo -S aptitude install openssh-server<enter>",
         "<wait10>"
       ],
 
-      "boot_wait": "5s",
       "disk_size": 32768,
       "format": "ova",
       "guest_os_type": "Debian_64",
-      "shutdown_command": "echo -e \"{{user `vm_password`}}\\n\" | sudo -S shutdown -h now",
+      "shutdown_command": "echo \"{{user `vm_password`}}\" | sudo -S shutdown -h now",
       "ssh_password": "{{user `vm_password`}}",
 
       "vboxmanage": [

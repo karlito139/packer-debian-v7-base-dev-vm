@@ -41,6 +41,10 @@ Feel free to take a look at __template.json__ to see these variables in action.
 
 Packer automates the VM creation process by sending scancodes to the VM via `boot_command`. Depending on your machine's specs and performance, this process may or may not work well for you as waiting times may differ drastically (a command that might take 1 second on our machines could take 10 seconds on yours). This isn't something we can fix. We can only guarantee it works on our machines.
 
+## TODO
+
+ - Switch to using a completely command-based approach (related: _[Debian GNU/Linux Installation Guide](http://debian.org/releases/stable/amd64/install.txt.en "Debian GNU/Linux Installation Guide")_).
+
 ## Contributors
 
 __[Jonathan Barronville](mailto:jonathan@scrapum.com "jonathan@scrapum.com")__
