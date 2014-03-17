@@ -162,7 +162,7 @@
         "<wait10><wait10><wait10>",
         "aptitude install sudo<enter>",
         "<wait10><wait5>",
-        "adduser {{user `vm_username`}} sudo",
+        "adduser {{user `vm_username`}} sudo<enter>",
         "<wait5>",
         "exit<enter>",
         "<wait>",
