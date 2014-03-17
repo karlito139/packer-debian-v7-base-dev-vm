@@ -172,14 +172,14 @@
         "<wait>",
         "{{user `vm_password`}}<enter>",
         "<wait5>",
-        "echo -e \"{{user `vm_password`}}\\n\" | sudo -S aptitude install openssh-server<enter>",
+        "echo \"{{user `vm_password`}}\" | sudo -S aptitude install openssh-server<enter>",
         "<wait10>"
       ],
 
       "disk_size": 32768,
       "format": "ova",
       "guest_os_type": "Debian_64",
-      "shutdown_command": "echo -e \"{{user `vm_password`}}\\n\" | sudo -S shutdown -h now",
+      "shutdown_command": "echo \"{{user `vm_password`}}\" | sudo -S shutdown -h now",
       "ssh_password": "{{user `vm_password`}}",
 
       "vboxmanage": [
