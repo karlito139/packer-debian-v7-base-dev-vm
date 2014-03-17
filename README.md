@@ -9,6 +9,7 @@ This is the base Debian v7 VM we use for __[Scrapum](http://scrapum.com "Scrapum
 ## Prerequisites
 
  - [Packer](http://packer.io "Packer")
+ - [VirtualBox](http://virtualbox.org "Oracle VM VirtualBox")
 
 ## Installation and usage
 
