@@ -84,7 +84,7 @@
         "cd ~",
         "echo '{{user `vm_user_password`}}' | sudo -S mv -f {{user `packer_copy_apt_sources_location`}} /etc/apt/sources.list",
         "echo '{{user `vm_user_password`}}' | sudo -S aptitude {{user `vm_debian_aptitude_flags`}} update",
-        "echo '{{user `vm_user_password`}}' | sudo -S aptitude {{user `vm_debian_aptitude_flags`}} install {{user `shell_debian_packages_to_install`}}",
+        "echo '{{user `vm_user_password`}}' | sudo -S aptitude {{user `vm_debian_aptitude_flags`}} install linux-headers-$(uname -r | sed 's,[^-]*-[^-]*-,,') {{user `shell_debian_packages_to_install`}}",
         "echo '{{user `vm_user_password`}}' | sudo -S aptitude {{user `vm_debian_aptitude_flags`}} safe-upgrade",
         "echo '{{user `vm_user_password`}}' | sudo -S mkdir -p {{user `shell_vboxguestadditions_mount_location`}}",
         "echo '{{user `vm_user_password`}}' | sudo -S mount -o loop /home/{{user `vm_user_username`}}/VBoxGuestAdditions.iso {{user `shell_vboxguestadditions_mount_location`}}",
