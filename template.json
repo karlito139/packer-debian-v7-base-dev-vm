@@ -24,7 +24,6 @@
       "disk_size": 32768,
       "format": "ova",
       "guest_os_type": "Debian_64",
-      "headless": false,
       "http_directory": "{{user `packer_files_directory`}}",
       "shutdown_command": "echo '{{user `vm_user_password`}}' | sudo -S shutdown -h now",
       "ssh_password": "{{user `vm_user_password`}}",
