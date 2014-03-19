@@ -16,24 +16,21 @@ This is the base Debian v7 VM we use for __[Scrapum](http://scrapum.com "Scrapum
 ```sh
 git clone https://github.com/scrapum/packer-debian-v7-base-dev-vm.git PATH
 cd PATH
-packer build template.json
+packer build template.json # Let it run solo to do its magic.
 ```
 
 ### Variables
 
 The following are several variables you can _[change](http://packer.io/docs/templates/user-variables.html "User Variables in Templates - Packer")_ for this template.
 
+ - `vm_debian_packages_to_install` (default: `"automake bison build-essential curl emacs fish flex g++ git libgdbm-dev libncurses5-dev libreadline-dev libssl-dev llvm-dev mosh nfs-common nfs-kernel-server portmap python-software-properties sed subversion tar tig tmux tree unzip vim wget zlib1g-dev"`)
  - `vm_domain_name` (default: `"terminator.dev"`)
- - `vm_fs_partition_size_home` (default: `"4 GB"`)
- - `vm_fs_partition_size_root` (default: `"2 GB"`)
- - `vm_fs_partition_size_swap` (default: `"2.5 GB"`)
- - `vm_fs_partition_size_tmp` (default: `"2 GB"`)
- - `vm_fs_partition_size_usr` (default: `"10 GB"`)
- - `vm_fs_partition_size_var` (default: `"max"`)
- - `vm_full_name` (default: `"The Terminator Commander"`)
  - `vm_hostname` (default: `"terminator"`)
- - `vm_password` (default: `"beawesome"`)
- - `vm_username` (default: `"commander"`)
+ - `vm_keymap` (default: `"us"`)
+ - `vm_locale` (default: `"en_US"`)
+ - `vm_user_full_name` (default: `"The Terminator Commander"`)
+ - `vm_user_password` (default: `"beawesome"`)
+ - `vm_user_username` (default: `"commander"`)
 
 Feel free to take a look at __template.json__ to see these variables in action.
 
@@ -43,7 +40,7 @@ Packer automates the VM creation process by sending scancodes to the VM via `boo
 
 ## TODO
 
- - Switch to using a completely command-based approach (related: _[Debian GNU/Linux Installation Guide](http://debian.org/releases/stable/amd64/install.txt.en "Debian GNU/Linux Installation Guide")_).
+You [tell me](https://github.com/scrapum/packer-debian-v7-base-dev-vm/issues "Issues · scrapum/packer-debian-v7-base-dev-vm")!
 
 ## Contributors
 
