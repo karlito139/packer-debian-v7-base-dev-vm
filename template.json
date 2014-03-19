@@ -90,7 +90,9 @@
         "echo '{{user `vm_user_password`}}' | sudo -S sh {{user `shell_vboxguestadditions_mount_location`}}/VBoxLinuxAdditions.run --nox11 <<< 'yes'",
         "echo '{{user `vm_user_password`}}' | sudo -S umount -d {{user `shell_vboxguestadditions_mount_location`}}",
         "echo '{{user `vm_user_password`}}' | sudo -S rm -fr {{user `shell_vboxguestadditions_mount_location`}}",
-        "rm -f /home/{{user `vm_user_username`}}/VBoxGuestAdditions.iso"
+        "rm -f /home/{{user `vm_user_username`}}/VBoxGuestAdditions.iso",
+        "echo '{{user `vm_user_password`}}' | sudo -S chsh -s $(which {{user `vm_default_shell`}}) {{user `vm_user_username`}}",
+        "echo '{{user `vm_user_password`}}' | sudo -S sed -i -r 's/^(\\s*%sudo\\s+ALL\\s*=\\s*\\(\\s*ALL\\s*:\\s*ALL\\s*\\)\\s*)(ALL)(\\s*)$/\\1NOPASSWD:ALL\\3/' /etc/sudoers"
       ],
 
       "inline_shebang": "/usr/bin/env bash"
@@ -103,6 +105,7 @@
     "shell_debian_packages_to_install": "automake bison build-essential curl emacs fish flex g++ git libgdbm-dev libncurses5-dev libreadline-dev libssl-dev llvm-dev mosh nfs-common nfs-kernel-server portmap python-software-properties sed subversion tar tig tmux tree unzip vim wget zlib1g-dev",
     "shell_vboxguestadditions_mount_location": "/mnt/vboxguestadditions",
     "vm_debian_aptitude_flags": "--no-gui -y",
+    "vm_default_shell": "fish",
     "vm_domain_name": "terminator.dev",
     "vm_hostname": "terminator",
     "vm_keymap": "us",
