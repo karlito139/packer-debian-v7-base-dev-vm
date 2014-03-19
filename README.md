@@ -23,14 +23,15 @@ packer build template.json # Let it run solo to do its magic.
 
 The following are several variables you can _[change](http://packer.io/docs/templates/user-variables.html "User Variables in Templates - Packer")_ for this template.
 
- - `vm_debian_packages_to_install` (default: `"automake bison build-essential curl emacs fish flex g++ git libgdbm-dev libncurses5-dev libreadline-dev libssl-dev llvm-dev mosh nfs-common nfs-kernel-server portmap python-software-properties sed subversion tar tig tmux tree unzip vim wget zlib1g-dev"`)
- - `vm_domain_name` (default: `"terminator.dev"`)
- - `vm_hostname` (default: `"terminator"`)
- - `vm_keymap` (default: `"us"`)
- - `vm_locale` (default: `"en_US"`)
- - `vm_user_full_name` (default: `"The Terminator Commander"`)
- - `vm_user_password` (default: `"beawesome"`)
- - `vm_user_username` (default: `"commander"`)
+ - `shell_debian_packages_to_install` [default: `"automake bison build-essential curl emacs fish flex g++ git libgdbm-dev libncurses5-dev libreadline-dev libssl-dev llvm-dev mosh nfs-common nfs-kernel-server portmap python-software-properties sed subversion tar tig tmux tree unzip vim wget zlib1g-dev"`]
+ - `vm_default_shell` [default: `"fish"`]
+ - `vm_domain_name` [default: `"terminator.dev"`]
+ - `vm_hostname` [default: `"terminator"`]
+ - `vm_keymap` [default: `"us"`]
+ - `vm_locale` [default: `"en_US"`]
+ - `vm_user_full_name` [default: `"The Terminator Commander"`]
+ - `vm_user_password` [default: `"beawesome"`]
+ - `vm_user_username` [default: `"commander"`]
 
 Feel free to take a look at __template.json__ to see these variables in action.
 
