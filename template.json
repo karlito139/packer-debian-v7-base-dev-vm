@@ -4,58 +4,31 @@
       "name": "debian-v7-base-dev-vm-{{timestamp}}",
       "type": "virtualbox-iso",
 
-      "iso_checksum": "9bc3493d8f4a84093fe8bd28551ece05d0145fc467070dd411f495fde40a10d32f144e2828ebf2f892e29d2f36543f9ccdc9bb479869c7425e725140390869a3",
-      "iso_checksum_type": "sha512",
-      "iso_url": "http://mirror.rit.edu/debian-cd/7.4.0/amd64/iso-cd/debian-7.4.0-amd64-CD-1.iso",
+      "iso_url": "http://ftp.acc.umu.se/debian-cd/7.5.0/i386/iso-cd/debian-7.5.0-i386-CD-1.iso",
+      "iso_checksum": "e774637c8103705ea595b8729a46fc66",
+      "iso_checksum_type": "md5",
       "ssh_username": "{{user `vm_user_username`}}",
 
       "boot_command": [
         "<esc>",
         "<wait>",
-        "install auto-install/enable=\"true\" debian-installer/locale=\"{{user `vm_locale`}}\" keyboard-configuration/xkb-keymap=\"{{user `vm_keymap`}}\" netcfg/choose_interface=\"auto\" netcfg/get_domain=\"{{user `vm_domain_name`}}\" netcfg/get_hostname=\"{{user `vm_hostname`}}\" netcfg/hostname=\"{{user `vm_hostname`}}\" passwd/root-password-again=\"{{user `vm_user_password`}}\" passwd/root-password=\"{{user `vm_user_password`}}\" passwd/user-default-groups=\"audio cdrom dip floppy plugdev sudo video {{user `vm_user_username`}}\" passwd/user-fullname=\"{{user `vm_user_full_name`}}\" passwd/user-password-again=\"{{user `vm_user_password`}}\" passwd/user-password=\"{{user `vm_user_password`}}\" passwd/username=\"{{user `vm_user_username`}}\" preseed/url=\"http://{{ .HTTPIP }}:{{ .HTTPPort }}/debian-preseed.cfg\"<enter>",
-        "<wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait5>",
-        "<enter>",
-        "<wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10>",
-        "{{user `vm_user_username`}}<enter>",
-        "<wait>",
-        "{{user `vm_user_password`}}<enter>"
+        "install auto-install/enable=\"true\" debian-installer/locale=\"{{user `vm_locale`}}\" keyboard-configuration/xkb-keymap=\"{{user `vm_keymap`}}\" netcfg/choose_interface=\"auto\" netcfg/get_domain=\"{{user `vm_domain_name`}}\" netcfg/get_hostname=\"{{user `vm_hostname`}}\" netcfg/hostname=\"{{user `vm_hostname`}}\" passwd/root-password-again=\"{{user `vm_user_password`}}\" passwd/root-password=\"{{user `vm_user_password`}}\" passwd/user-default-groups=\"audio cdrom dip floppy plugdev sudo video {{user `vm_user_username`}}\" passwd/user-fullname=\"{{user `vm_user_full_name`}}\" passwd/user-password-again=\"{{user `vm_user_password`}}\" passwd/user-password=\"{{user `vm_user_password`}}\" passwd/username=\"{{user `vm_user_username`}}\" preseed/url=\"http://{{ .HTTPIP }}:{{ .HTTPPort }}/debian-preseed.cfg\"<enter>"
       ],
 
-      "disk_size": 32768,
+      "disk_size": 10000,
       "format": "ova",
-      "guest_os_type": "Debian_64",
+      "guest_os_type": "Debian",
       "http_directory": "{{user `packer_files_directory`}}",
       "shutdown_command": "echo '{{user `vm_user_password`}}' | sudo -S shutdown -h now",
       "ssh_password": "{{user `vm_user_password`}}",
 
       "vboxmanage": [
-        [
-          "modifyvm",
-          "{{.Name}}",
-          "--accelerate3d",
-          "off"
-        ],
-
-        [
-          "modifyvm",
-          "{{.Name}}",
-          "--cpus",
-          "1"
-        ],
-
-        [
-          "modifyvm",
-          "{{.Name}}",
-          "--memory",
-          "1024"
-        ],
-
-        [
-          "modifyvm",
-          "{{.Name}}",
-          "--vtxvpid",
-          "off"
-        ]
+        ["modifyvm", "{{.Name}}", "--accelerate3d", "off"],
+        ["modifyvm", "{{.Name}}", "--cpus", "1"],
+        ["modifyvm", "{{.Name}}", "--memory", "1024"],
+        ["modifyvm", "{{.Name}}", "--vtxvpid", "off"],
+        ["modifyvm", "{{.Name}}", "--nic2", "hostonly"],
+        ["modifyvm", "{{.Name}}", "--hostonlyadapter2", "vboxnet0"]
       ]
     }
   ],
@@ -102,16 +75,16 @@
   "variables": {
     "packer_copy_apt_sources_location": "/tmp/debian-apt-sources.txt",
     "packer_files_directory": "vm/files",
-    "shell_debian_packages_to_install": "automake bison build-essential curl emacs fish flex g++ git libgdbm-dev libncurses5-dev libreadline-dev libssl-dev llvm-dev mosh nfs-common nfs-kernel-server portmap python-software-properties sed subversion tar tig tmux tree unzip vim wget zlib1g-dev",
+    "shell_debian_packages_to_install": "automake build-essential curl emacs flex g++ git libgdbm-dev libncurses5-dev libreadline-dev libssl-dev llvm-dev mosh sed tar tig tmux tree unzip vim wget",
     "shell_vboxguestadditions_mount_location": "/mnt/vboxguestadditions",
     "vm_debian_aptitude_flags": "--no-gui -y",
-    "vm_default_shell": "fish",
-    "vm_domain_name": "terminator.dev",
-    "vm_hostname": "terminator",
-    "vm_keymap": "us",
+    "vm_default_shell": "bash",
+    "vm_domain_name": "test.com",
+    "vm_hostname": "test",
+    "vm_keymap": "fr",
     "vm_locale": "en_US",
     "vm_user_full_name": "The Terminator Commander",
-    "vm_user_password": "beawesome",
-    "vm_user_username": "commander"
+    "vm_user_password": "test",
+    "vm_user_username": "karlito"
   }
 }
