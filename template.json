@@ -1,7 +1,7 @@
 {
   "builders": [
     {
-      "name": "debian-v7-base-dev-vm-{{timestamp}}",
+      "name": "debian-base",
       "type": "virtualbox-iso",
 
       "iso_url": "http://ftp.acc.umu.se/debian-cd/7.5.0/i386/iso-cd/debian-7.5.0-i386-CD-1.iso",
@@ -38,7 +38,8 @@
       "type": "vagrant",
 
       "compression_level": 9,
-      "output": "build-packer-{{.Provider}}-{{.BuildName}}.box"
+      "output": "{{.BuildName}}.box",
+      "keep_input_artifact": true
     }
   ],
 
@@ -69,6 +70,10 @@
       ],
 
       "inline_shebang": "/usr/bin/env bash"
+    },
+    {
+      "type": "shell",
+      "script": "./post-install.sh"
     }
   ],
 
@@ -83,8 +88,8 @@
     "vm_hostname": "test",
     "vm_keymap": "fr",
     "vm_locale": "en_US",
-    "vm_user_full_name": "The Terminator Commander",
+    "vm_user_full_name": "vagrant",
     "vm_user_password": "test",
-    "vm_user_username": "karlito"
+    "vm_user_username": "vagrant"
   }
 }
