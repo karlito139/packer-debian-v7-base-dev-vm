@@ -68,8 +68,8 @@ sudo apt-get -y autoremove
 
 
 ## Configure the network
-echo -e "\n\nallow-hotplug eth1\niface eth1 inet static\n\taddress 192.168.56.250\n\tnetmast 255.255.255.0" >> /etc/network/interfaces
-ifup eth1
+#echo -e "\n\nallow-hotplug eth1\niface eth1 inet static\n\taddress 192.168.56.250\n\tnetmast 255.255.255.0" >> /etc/network/interfaces
+#ifup eth1
 
 
 ## fetch the last modification of the lamamos project
