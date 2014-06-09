@@ -38,8 +38,7 @@
       "type": "vagrant",
 
       "compression_level": 9,
-      "output": "{{.BuildName}}.box",
-      "keep_input_artifact": true
+      "output": "{{.BuildName}}.box"
     }
   ],
 
