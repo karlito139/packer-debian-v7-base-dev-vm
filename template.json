@@ -62,6 +62,13 @@
         "echo '{{user `vm_user_password`}}' | sudo -S aptitude {{user `vm_debian_aptitude_flags`}} install linux-headers-$(uname -r | sed 's,[^-]*-[^-]*-,,') {{user `shell_debian_packages_to_install`}}",
         "echo '{{user `vm_user_password`}}' | sudo -S aptitude {{user `vm_debian_aptitude_flags`}} safe-upgrade",
 
+        "echo '{{user `vm_user_password`}}' | sudo -S mkdir -p {{user `shell_vboxguestadditions_mount_location`}}",
+        "echo '{{user `vm_user_password`}}' | sudo -S mount -o loop /home/{{user `vm_user_username`}}/VBoxGuestAdditions.iso {{user `shell_vboxguestadditions_mount_location`}}",
+        "echo '{{user `vm_user_password`}}' | sudo -S sh {{user `shell_vboxguestadditions_mount_location`}}/VBoxLinuxAdditions.run --nox11 <<< 'yes'",
+        "echo '{{user `vm_user_password`}}' | sudo -S umount -d {{user `shell_vboxguestadditions_mount_location`}}",
+        "echo '{{user `vm_user_password`}}' | sudo -S rm -fr {{user `shell_vboxguestadditions_mount_location`}}",
+        "rm -f /home/{{user `vm_user_username`}}/VBoxGuestAdditions.iso",
+
         "echo '{{user `vm_user_password`}}' | sudo -S ln -s /opt/VBoxGuestAdditions-4.3.10/lib/VBoxGuestAdditions /usr/lib/VBoxGuestAdditions", 
         "echo '{{user `vm_user_password`}}' | sudo -S chsh -s $(which {{user `vm_default_shell`}}) {{user `vm_user_username`}}",
         "echo '{{user `vm_user_password`}}' | sudo -S sed -i -r 's/^(\\s*%sudo\\s+ALL\\s*=\\s*\\(\\s*ALL\\s*:\\s*ALL\\s*\\)\\s*)(ALL)(\\s*)$/\\1NOPASSWD:ALL\\3/' /etc/sudoers"
