@@ -4,10 +4,11 @@
       "name": "debian-base",
       "type": "virtualbox-iso",
 
-      "iso_url": "http://ftp.acc.umu.se/debian-cd/7.5.0/i386/iso-cd/debian-7.5.0-i386-CD-1.iso",
-      "iso_checksum": "e774637c8103705ea595b8729a46fc66",
+      "iso_url": "http://ftp.acc.umu.se/debian-cd/7.6.0/i386/iso-cd/debian-7.6.0-i386-CD-1.iso",
+      "iso_checksum": "bbb362be12ae9043e9aaea282274c385",
       "iso_checksum_type": "md5",
       "ssh_username": "{{user `vm_user_username`}}",
+      "guest_additions_mode": "disable",
 
       "boot_command": [
         "<esc>",
