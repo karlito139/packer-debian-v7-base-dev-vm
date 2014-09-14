@@ -74,7 +74,10 @@ sudo apt-get -y autoremove
 
 ## fetch the last modification of the lamamos project
 cd /home/vagrant/lamamos_installation_script/
-git pull
+git remote rm origin
+git remote add origin https://github.com/karlito139/lamamos_installation_script.git
+git pull origin debug_install
+#git checkout debug_install
 
 
 
