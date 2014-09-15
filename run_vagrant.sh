@@ -76,7 +76,7 @@ sudo apt-get -y autoremove
 cd /home/vagrant/lamamos_installation_script/
 git remote rm origin
 git remote add origin https://github.com/karlito139/lamamos_installation_script.git
-git pull origin debug_install
+git pull origin master
 #git checkout debug_install
 
 
